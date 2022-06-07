@@ -1,18 +1,43 @@
-CREATE TABLE Book
+DROP TABLE if exists books CASCADE;
+CREATE TABLE books
 (
-    bookID serial PRIMARY KEY,
+    book_id serial PRIMARY KEY,
     title VARCHAR,
-    Author CHAR,
-    publish_year VARCHAR,
+    author varchar,
+    publish_year VARCHAR
 );
 
-CREATE TABLE LoanedBooks
+DROP TABLE if exists loaned_books CASCADE;
+CREATE TABLE loaned_books
 (
-    memberID INT,
-    bookID INT,
+    loan_id serial,
+    book_id INT,
     loan_date VARCHAR,
 
     CONSTRAINT fk_Book_LoanedBooks
-            FOREIGN KEY (bookID)
-                REFERENCES Book (bookID)
+            FOREIGN KEY (book_id)
+                REFERENCES books (book_id)
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
