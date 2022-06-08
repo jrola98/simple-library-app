@@ -23,7 +23,6 @@ public class BookService {
 
     public void add(Book book) {
         bookRepository.insertBook(book);
-        System.out.println(book);
     }
 
     public Optional<Book> getBook(String title){
