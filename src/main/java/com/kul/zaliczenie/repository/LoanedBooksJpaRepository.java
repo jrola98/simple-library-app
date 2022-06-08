@@ -41,6 +41,14 @@ public class LoanedBooksJpaRepository implements LoanedBooksRepository {
                 .collect(Collectors.toList());
     }
 
+    public boolean isLoaned(long book_id){
+        return entityManager.createQuery("SELECT loanedBooksEntity FROM LoanedBooksEntity loanedBooksEntity WHERE book_id = :book_id")
+                .setParameter("book_id", book_id)
+                .getResultList()
+                .stream()
+                .findFirst().isPresent();
+    }
+
     public LoanedBooksEntity findById(long id){
         return entityManager.find(LoanedBooksEntity.class, id);
     }

@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Repository
 @Primary
-public class BookRepositoryImpl implements BookRepository {
+public class BookJpaRepository implements BookRepository {
     @PersistenceContext
     private final EntityManager entityManager;
 
@@ -34,8 +34,10 @@ public class BookRepositoryImpl implements BookRepository {
                 .setParameter("custTitle", title)
                 .getResultList()
                 .stream()
-                .findFirst();
+                .findFirst(); //.findFirst().isPresent
     }
+
+
 
     public BookEntity findById(long id){
 
