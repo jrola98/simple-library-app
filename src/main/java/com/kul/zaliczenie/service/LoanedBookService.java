@@ -1,7 +1,6 @@
 package com.kul.zaliczenie.service;
 
 
-import com.kul.zaliczenie.model.Book;
 import com.kul.zaliczenie.model.LoanedBooks;
 import com.kul.zaliczenie.repository.LoanedBooksJpaRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,19 +13,24 @@ import java.util.List;
 public class LoanedBookService {
     private final LoanedBooksJpaRepository loanedBooksJpaRepository;
 
-    public List<LoanedBooks> loanedBooks(){
+    public List<LoanedBooks> loanedBooks() {
         return loanedBooksJpaRepository.getLoanedBooks();
     }
 
-    public void returnBook(long loanId){
+    public void returnBook(long loanId) {
         loanedBooksJpaRepository.returnBook(loanId);
     }
 
-    public void add(LoanedBooks loanedBooks){
-        loanedBooksJpaRepository.loanBook(loanedBooks);
+    public boolean add(LoanedBooks loanedBooks) {
+        if (loanedBooksJpaRepository.isLoaned(loanedBooks.getBookId())){return false;}
+        else {
+            loanedBooksJpaRepository.loanBook(loanedBooks);
+            return true;
+        }
+
+
     }
-
-
-
-
 }
+
+
+

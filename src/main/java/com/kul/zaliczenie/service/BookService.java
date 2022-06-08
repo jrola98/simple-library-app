@@ -1,7 +1,7 @@
 package com.kul.zaliczenie.service;
 
 import com.kul.zaliczenie.model.Book;
-import com.kul.zaliczenie.repository.BookRepositoryImpl;
+import com.kul.zaliczenie.repository.BookJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +12,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class BookService {
 
-    //crud
 
-    private final BookRepositoryImpl bookRepository;
+
+    private final BookJpaRepository bookRepository;
 
     public List<Book> loadList() {
         return bookRepository.getBooks();
