@@ -18,8 +18,11 @@ public class Book {
     private String author;
     private String publishYear;
 
-
-
+    public Book(String title, String author, String publishYear) {
+        this.title = title;
+        this.author = author;
+        this.publishYear = publishYear;
+    }
 
 
     public static Book from(BookEntity bookEntity){

@@ -1,5 +1,6 @@
 package com.kul.zaliczenie;
 
+import com.kul.zaliczenie.printer.MainPrinter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -11,5 +12,7 @@ public class App {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(App.class, args);
+        MainPrinter bean = run.getBean(MainPrinter.class);
+        bean.process();
     }
 }
