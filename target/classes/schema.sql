@@ -19,16 +19,6 @@ CREATE TABLE loaned_books
                 REFERENCES books (book_id)
 );
 
-DROP TABLE if exists users CASCADE;
-CREATE TABLE users
-(
-    user_id serial,
-    first_name VARCHAR,
-    last_name VARCHAR,
-    email VARCHAR,
-
-);
-
 
 
 
