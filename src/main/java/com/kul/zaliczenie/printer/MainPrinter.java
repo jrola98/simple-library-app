@@ -77,7 +77,9 @@ public class MainPrinter {
         String id = scanner.nextLine();
         System.out.println("Podaj dzisiajszą datę");
         String date = scanner.nextLine();
-        loanedBookService.add(new LoanedBooks(Long.parseLong(id), date));
+        System.out.println("Podaj numer karty bibliotecznej");
+        String userId = scanner.nextLine();
+        loanedBookService.add(new LoanedBooks(Long.parseLong(id), date, Long.parseLong(userId)));
     }
 
     private void printLoans() {

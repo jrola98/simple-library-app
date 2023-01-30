@@ -10,4 +10,5 @@ public interface UserRepository {
     List<User> getUsers();
     void createUser(User user);
     Optional<User> getUser(long id);
+    void removeUser(long id);
 }

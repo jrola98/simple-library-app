@@ -32,7 +32,7 @@ public class UserJpaRepository implements UserRepository {
     }
 
     public Optional<User> getUser(long id){
-        return entityManager.createQuery("SELECT userEntity FROM UserEntity userEntityt where id like :custId")
+        return entityManager.createQuery("SELECT userEntity FROM UserEntity userEntity where id like :custId")
                 .setParameter("custId", id)
                 .getResultList()
                 .stream()
@@ -47,5 +47,10 @@ public class UserJpaRepository implements UserRepository {
     @Transactional
     public void createUser(User user){
         entityManager.persist(UserEntity.fromUser(user));
+    }
+
+    @Transactional
+    public void removeUser(long id){
+        entityManager.remove(findById(id));
     }
 }

@@ -26,4 +26,8 @@ public class UserService {
     public Optional<User> getUser(long id){
         return userRepository.getUser(id);
     }
+
+    public void removeUser(long id){
+        userRepository.removeUser(id);
+    }
 }

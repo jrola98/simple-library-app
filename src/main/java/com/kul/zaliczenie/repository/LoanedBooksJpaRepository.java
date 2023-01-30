@@ -2,8 +2,10 @@ package com.kul.zaliczenie.repository;
 
 import com.kul.zaliczenie.entity.LoanedBooksEntity;
 import com.kul.zaliczenie.model.LoanedBooks;
+import com.kul.zaliczenie.service.EmailSenderService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -17,6 +19,9 @@ import java.util.stream.Collectors;
 @Repository
 public class LoanedBooksJpaRepository implements LoanedBooksRepository {
 
+    @Autowired
+    EmailSenderService emailSenderService;
+
     @PersistenceContext
     private final EntityManager entityManager;
 
@@ -24,6 +29,7 @@ public class LoanedBooksJpaRepository implements LoanedBooksRepository {
     @Transactional
     public void loanBook(LoanedBooks loanedBooks){
         entityManager.persist(LoanedBooksEntity.fromLoanedBooksEntity(loanedBooks));
+        emailSenderService.sendEmail("skatermax555@gmail.com", "test", "wypozyczono ksiazke!");
     }
 
     @Override
