@@ -17,6 +17,8 @@ import java.util.stream.Collectors;
 @Repository
 public class LoanedBooksJpaRepository implements LoanedBooksRepository {
 
+
+
     @PersistenceContext
     private final EntityManager entityManager;
 

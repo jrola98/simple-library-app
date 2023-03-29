@@ -22,11 +22,13 @@ public class LoanedBooksEntity {
     private long loanId;
     @Column(name = "book_id")
     private long bookId;
+    @Column(name = "user_id")
+    private long userId;
     @Column(name = "loan_date")
     private String loanDate;
 
     public static LoanedBooksEntity fromLoanedBooksEntity(LoanedBooks loanedBooks){
-        return new LoanedBooksEntity(loanedBooks.getLoan_id(), loanedBooks.getBookId(), loanedBooks.getLoanDate());
+        return new LoanedBooksEntity(loanedBooks.getLoan_id(), loanedBooks.getBookId(), loanedBooks.getUserId(), loanedBooks.getLoanDate());
     }
 
 

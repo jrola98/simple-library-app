@@ -5,9 +5,7 @@ import com.kul.zaliczenie.model.LoanedBooks;
 import com.kul.zaliczenie.service.LoanedBookService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("book/loan")
@@ -21,7 +19,9 @@ public class LoanedBookControler {
     @PostMapping
     String loan(@RequestBody LoanedBooks loanedBooks) {
         boolean isLoaned = loanedBookService.add(loanedBooks);
-        if(isLoaned){return "Dodano wypożyczenie";}
+        if(isLoaned){
+            return "Dodano wypożyczenie";
+        }
 
         return "Książka nie jest dostępna";
     }
