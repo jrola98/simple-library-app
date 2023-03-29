@@ -2,15 +2,10 @@ package com.kul.zaliczenie.controller;
 
 
 import com.kul.zaliczenie.model.LoanedBooks;
-import com.kul.zaliczenie.service.EmailSenderService;
 import com.kul.zaliczenie.service.LoanedBookService;
-import com.kul.zaliczenie.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("book/loan")
